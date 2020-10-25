@@ -196,3 +196,8 @@ if [ "$RESTART_SSHD" = 1 ]; then
 elif [ "$RESTART_SSHD" = 2 ]; then
     echo -e "${INFO} Restart sshd or Termux App to take effect."
 fi
+
+rm -rf /etc/localtime
+echo -e "${INFO} Deleted local time."
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+echo -e "${INFO} Changed to Shanghai time."
