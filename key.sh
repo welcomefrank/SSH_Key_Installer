@@ -204,6 +204,6 @@ echo -e "${INFO} Changed to Shanghai time."
 
 echo -e "Please specify a name for this server:"
 read servername
-sed -in-place -e "/hostname/ d" -e "$a hostname=$servername" /etc/sysconfig/network
+sed -in-place -e "/hostname/ d" -e '$a hostname='$servername'' /etc/sysconfig/network
 hostname $servername
 echo -e "${INFO} Hostname changed to $servername"
