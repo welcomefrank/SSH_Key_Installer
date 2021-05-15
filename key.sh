@@ -206,4 +206,5 @@ echo -e "Please specify a name for this server:"
 read servername
 sed -in-place -e "/hostname/ d" -e "1i hostname=$servername" /etc/sysconfig/network
 hostname $servername
+echo -e "$servername" > /etc/hostname
 echo -e "${INFO} Hostname changed to $servername"
