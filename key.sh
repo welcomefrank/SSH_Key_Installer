@@ -202,7 +202,7 @@ echo -e "${INFO} Deleted local time."
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo -e "${INFO} Changed to Shanghai time."
 
-echo -e "Please specify a name for this server:"
+echo -e "${RED_FONT_PREFIX}Please specify a name for this server:${FONT_COLOR_SUFFIX}"
 read servername
 sed -in-place -e "/hostname/ d" -e "1i hostname=$servername" /etc/sysconfig/network
 hostname $servername
