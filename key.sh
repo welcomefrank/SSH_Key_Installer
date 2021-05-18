@@ -15,6 +15,9 @@ INFO="[${LIGHT_GREEN_FONT_PREFIX}INFO${FONT_COLOR_SUFFIX}]"
 ERROR="[${RED_FONT_PREFIX}ERROR${FONT_COLOR_SUFFIX}]"
 [ $EUID != 0 ] && SUDO=sudo
 
+echo -e "${RED_FONT_PREFIX}Please specify a name for this server:${FONT_COLOR_SUFFIX}"
+read servername
+
 USAGE() {
     echo "
 SSH Key Installer $VERSION
@@ -202,8 +205,6 @@ echo -e "${INFO} Deleted local time."
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo -e "${INFO} Changed to Shanghai time."
 
-echo -e "${RED_FONT_PREFIX}Please specify a name for this server:${FONT_COLOR_SUFFIX}"
-read servername
 sed -in-place -e "/hostname/ d" -e "1i hostname=$servername" /etc/sysconfig/network
 hostname $servername
 echo -e "$servername" > /etc/hostname
